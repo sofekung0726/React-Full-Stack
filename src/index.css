@@ -1,0 +1,29 @@
+body{
+  margin: 0;
+  padding: 2rem 5rem;
+  text-align: center;
+  background-color: #212529;
+}
+
+
+.restaurants{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+  color: black;
+  gap: 0.5rem;
+}
+.restaurants > img{
+  flex:1;
+  object-fit: cover;
+  margin:auto;
+}
+
+h1{
+  color: white;
+}
+
+.form{
+  justify-content: center;
+}
