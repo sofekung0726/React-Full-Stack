@@ -5,7 +5,7 @@ import Navbar from './components/Navbar'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Restaurant from './pages/Restaurant';
 import Add from './pages/Add';
-import Search from './pages/search';
+import Search from './pages/Search';
 import Edit from "./pages/Edit"
 function App() {
   return (
