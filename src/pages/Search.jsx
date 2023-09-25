@@ -1,13 +1,13 @@
-// import React from 'react'
-// import {Link} from "react-router-dom"
+import React from 'react'
 
-// const Search = ({value, onValueChange}) => {
-//   return (
-//     <div><input className='search'placeholder='Search' type='text'
-//     value={value} onChange={(event)=>{onValueChange(event.target.value)}}
-//     />
-// </div>
-//   )
-// }
 
-// export default Search
+const Search = ({search, setSearch}) => {
+  return (
+  <input className='search'placeholder='Search' type='text'
+    value={search} onChange={(event)=>{setSearch(event.target.value)}}
+    />  
+
+  )
+}
+
+export default Search

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import {Link} from 'react-router-dom'
 import axios from "axios";
 import Card from '../components/Card';
+import Search from './Search';
 
 const URL = import.meta.env.VITE_BASE_URL
 const USERNAME = import.meta.env.VITE_BASE_USERNAME
@@ -17,7 +18,7 @@ const config = {
 
 const Restaurant = () => {
     const [restaurants , setRestaurants] = useState([]);
-    const [Search , setSearch] = useState('')
+    const [search , setSearch] = useState('')
     useEffect(()=>{
         const fethAllRes = async() => {
             try {
@@ -43,15 +44,14 @@ const Restaurant = () => {
   return (
     <div>
         <h1>Restaurant</h1>
-
+       
         <div className='row'>
-            <input className='search'placeholder='Search' type='text'
-                value={Search} onChange={(event)=>{setSearch(event.target.value)}}
-            />
+        <Search search={search} setSearch={setSearch}/>
             <div className='restaurants'>
                 {
                   restaurants.filter((restaurant)=>{
-                    return restaurant.name.includes(Search)
+                    return restaurant.name.includes(search)
+                       
                   }).map(restaurant =>{
                     return(
                         <Card restaurant={restaurant} handleDelete={handleDelete} key={restaurant.id}/>
