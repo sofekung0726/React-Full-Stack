@@ -9,6 +9,7 @@ import Search from './pages/Search';
 import Edit from "./pages/Edit"
 import Signup from './pages/Signup';
 import Signin from './pages/Signin';
+import Logout from './pages/Logout';
 function App() {
   return (
     
@@ -22,6 +23,8 @@ function App() {
         <Route path='/Edit/:restaurantId' element={<Edit />}/>
         <Route path='/Signup' element={<Signup/>}/>
         <Route path='/Signin' element={<Signin/>}/>
+        <Route path='logout' element={<Logout/>}/>
+
         </Routes> 
       </div>
       </BrowserRouter>

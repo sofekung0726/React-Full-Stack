@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {Link} from "react-router-dom"
+import AuthService from '../services/auth.service'
 
 const Navbar = () => {
+  const [user,setUser] = useState(AuthService.getCurrentUser()
+    )
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark ">
   <div className="container-fluid">
@@ -20,13 +23,18 @@ const Navbar = () => {
         <li className="nav-item">
           <Link className="nav-link " to="/search"  >Search</Link>
         </li>
-        
-        <li className="nav-item justify-content-end">
+        {!user && 
+        (<li className="nav-item justify-content-end">
           <Link className="nav-link " to="/Signin"  >Sign In           /           </Link>
-        </li>
-        <li className="nav-item justify-content-end ">
+        </li>)}
+        {!user && 
+        (<li className="nav-item justify-content-end ">
           <Link className="nav-link " to="/Signup"  >Sign Up</Link>
-        </li>
+        </li>)}
+        {user && 
+        (<li className="nav-item justify-content-end ">
+          <Link className="nav-link " to="/Logout"  >Logout</Link>
+        </li>)}
         
       </ul>
      
