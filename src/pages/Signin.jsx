@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {Link, Navigate, useNavigate} from 'react-router-dom'
 import AuthService from '../services/auth.service'
-
+import { useAuthContext } from '../context/auth.context'
 const Signin = () => {
     const [user , setUser] = useState({
         username:"",
@@ -9,13 +9,14 @@ const Signin = () => {
       })
       const navigate = useNavigate();
   const [error , setError] = useState(false);
- 
+  const {login} = useAuthContext()
   const handleClick = async (e) => {
     e.preventDefault();
     try {
       // alert("Sign Up")
       //  await axios.post(`${URL}/restaurant`,restaurant,config)
-      const login = await AuthService.login(user.username,user.password)
+      const currentUser = await AuthService.login(user.username,user.password)
+      login(currentUser);
       navigate("/")
     } catch (error) { 
       console.error(error);

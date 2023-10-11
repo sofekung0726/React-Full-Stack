@@ -10,23 +10,37 @@ import Edit from "./pages/Edit"
 import Signup from './pages/Signup';
 import Signin from './pages/Signin';
 import Logout from './pages/Logout';
+import Layout from './components/layout'
+import Profile from './pages/Profile';
+import ProtectedRoute from './pages/ProtectedRoute';
+import AdminRoute from './pages/AdminRoute';
+import Notallow from './pages/Notallow';
 function App() {
   return (
     
       <BrowserRouter>
-      <Navbar/>
-      <div className='App'>
+      
         <Routes>
-        <Route path='/' element={<Restaurant/>}/>
-        <Route path='/Add' element={<Add />}/>
-        <Route path='/search' element={<Search />}/>
+          <Route path='/' element={<Layout/>}>
+        <Route index element={<Restaurant/>}/>
+        <Route path='/Add' element={
+        <AdminRoute>
+        <Add />
+        </AdminRoute>
+        }/>
+        <Route path='/search' element={
+        <ProtectedRoute>
+        <Search />
+        </ProtectedRoute>
+        }/>
         <Route path='/Edit/:restaurantId' element={<Edit />}/>
         <Route path='/Signup' element={<Signup/>}/>
         <Route path='/Signin' element={<Signin/>}/>
         <Route path='logout' element={<Logout/>}/>
-
+        <Route path='/Profile' element={<Profile/>}/>
+        <Route path='/notallow' element={<Notallow/>}/>
+        </Route>
         </Routes> 
-      </div>
       </BrowserRouter>
     
   )
