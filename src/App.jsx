@@ -33,7 +33,16 @@ function App() {
         <Search />
         </ProtectedRoute>
         }/>
-        <Route path='/Edit/:restaurantId' element={<Edit />}/>
+
+        
+        <Route path='/Edit/:restaurantId' element={
+        <AdminRoute>
+        <Edit />
+        </AdminRoute>
+        }/>
+        
+
+
         <Route path='/Signup' element={<Signup/>}/>
         <Route path='/Signin' element={<Signin/>}/>
         <Route path='logout' element={<Logout/>}/>

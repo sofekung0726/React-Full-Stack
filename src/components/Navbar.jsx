@@ -22,11 +22,11 @@ const Navbar = () => {
         <li className="nav-item">
           <Link className="nav-link active" aria-current="page" to="/">Home</Link>
         </li>
-        {/* {!user &&( */}
+        {user && user.roles.includes("ROLES_ADMIN")&&( 
         <li className="nav-item">
           <Link className="nav-link " to="/Add">Add</Link>
         </li>
-        {/* )} */}
+         )} 
         <li className="nav-item">
           <Link className="nav-link " to="/search"  >Search</Link>
         </li>
