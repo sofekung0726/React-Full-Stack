@@ -1,18 +1,8 @@
 import React, {useState,useEffect} from 'react'
 import {Link, useNavigate ,useParams} from 'react-router-dom'
-import axios from "axios";
-import authHeader from '../services/auth-header';
+import api from "../services/api"
 
-const URL = import.meta.env.VITE_BASE_URL
-const USERNAME = import.meta.env.VITE_BASE_USERNAME
-const PASSWORD = import.meta.env.VITE_BASE_PASSWORD
-const config = {    
-    auth:{
-        username:USERNAME,
-        password:PASSWORD
-    },
-    headers:authHeader(),
-} 
+ 
 const Edit = () => {
 
     const [restaurant,setRestaurant] = useState({
@@ -29,7 +19,7 @@ const Edit = () => {
       useEffect(()=>{
         const fethAllRes = async() => {
             try {
-                const res = await axios.get(`${URL}/restaurant/${restaurantId}`,config) 
+                const res = await api.get(`/restaurant/${restaurantId}`) 
                 
                 setRestaurant(res.data.Restaurants)
             } catch (err) {
@@ -41,7 +31,7 @@ const Edit = () => {
     const handleClick = async (e)=>{
         e.preventDefault();
         try {
-          await axios.put(`${URL}/restaurant/${restaurantId}`,restaurant,config)
+          await api.put(`/restaurant/${restaurantId}`,restaurant)
           navigate("/")
         } catch (error) {
           console.log(error);
