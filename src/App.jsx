@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import {BrowserRouter , Routes , Route} from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Restaurant from './pages/Restaurant';
@@ -17,41 +17,36 @@ import AdminRoute from './pages/AdminRoute';
 import Notallow from './pages/Notallow';
 function App() {
   return (
-    
-      <BrowserRouter>
-      
-        <Routes>
-          <Route path='/' element={<Layout/>}>
-        <Route index element={<Restaurant/>}/>
-        <Route path='/Add' element={
-        <AdminRoute>
-        <Add />
-        </AdminRoute>
-        }/>
-        <Route path='/search' element={
-        <ProtectedRoute>
-        <Search />
-        </ProtectedRoute>
-        }/>
 
-        
-        <Route path='/Edit/:restaurantId' element={
-        <AdminRoute>
-        <Edit />
-        </AdminRoute>
-        }/>
-        
+    <BrowserRouter>
 
-
-        <Route path='/Signup' element={<Signup/>}/>
-        <Route path='/Signin' element={<Signin/>}/>
-        <Route path='logout' element={<Logout/>}/>
-        <Route path='/Profile' element={<Profile/>}/>
-        <Route path='/notallow' element={<Notallow/>}/>
+      <Routes>
+        <Route path='/' element={<Layout />}>
+          <Route index element={<Restaurant />} />
+          <Route path='/Add' element={
+            <AdminRoute>
+              <Add />
+            </AdminRoute>
+          } />
+          <Route path='/search' element={
+            <ProtectedRoute>
+              <Search />
+            </ProtectedRoute>
+          } />
+          <Route path='/Edit/:restaurantId' element={
+            <AdminRoute>
+              <Edit />
+            </AdminRoute>
+          } />
+          <Route path='/Signup' element={<Signup />} />
+          <Route path='/Signin' element={<Signin />} />
+          <Route path='logout' element={<Logout />} />
+          <Route path='/Profile' element={<Profile />} />
+          <Route path='/notallow' element={<Notallow />} />
         </Route>
-        </Routes> 
-      </BrowserRouter>
-    
+      </Routes>
+    </BrowserRouter>
+
   )
 }
 

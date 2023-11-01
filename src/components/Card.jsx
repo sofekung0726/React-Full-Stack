@@ -5,7 +5,7 @@ import { useAuthContext } from '../context/auth.context'
 
 
 const Card = ({restaurant ,handleDelete }) => {
-    const {user} = useAuthContext
+    const {user} = useAuthContext();
   return (
     <div className='card' style={{width:"18rem"}} key={restaurant.id}>
                             <img src={restaurant.imageurl} alt="" className='card-img-top' />
